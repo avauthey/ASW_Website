@@ -42,7 +42,6 @@ include("View/header.html");
 <?php
 // Include the footer
 //include("view/footer.html");
-echo 'Hello world from Cloud9!';
 
 ?>
 </html>
