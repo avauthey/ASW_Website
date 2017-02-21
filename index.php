@@ -1,5 +1,6 @@
 <html>
 <?php
+// https://asw-website-avauthey.c9users.io
 // A simple web site in Cloud9 that runs through Apache
 // Press the 'Run' button on the top to start the web server,
 // then click the URL that is emitted to the Output tab of the console
@@ -15,11 +16,12 @@ session_start();
 // Include the file header
 include("View/header.html");
 
-// Include the menu bar
-//include("view/menuBar.html");
+
 ?>
 <body>
     <?php
+    // Include the menu bar
+    include("View/menuBar.html");
     // Condition to the MVC
     if (!empty($_GET['page']) && is_file('Controller/'.$_GET['page'].'.php'))
     {
@@ -32,9 +34,8 @@ include("View/header.html");
     }
     else
     {
-        echo 'Hi everyone!';
         // if the user wants to go on a page that doesn't exist it will display the index page 
-       // include 'Controller/home.php';
+       include 'Controller/home.php';
     }
 ?>
 </body>

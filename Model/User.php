@@ -10,6 +10,8 @@
         
         //attributs
         private $id;
+        private $firstName;
+        private $lastName;
         private $email;
         private $password;
         private $cardNumber;
@@ -24,6 +26,8 @@
 		    $query -> execute();
 		    $data = $query -> fetch();
 		    $this -> id = $data['id'];
+		    $this -> firstName = $data['firstName'];
+		    $this -> lastName = $data['lastName'];
 		    $this -> email = $data['email'];
 		    $this -> password = $data['password'];
 		    $this -> cardNumber = $data['cardNumber'];
@@ -34,6 +38,12 @@
 		//functions
 		function getId(){
 			return $this -> id;
+		}
+		function getLastName(){
+			return $this -> lastName;
+		}
+		function getFirstName(){
+			return $this -> firstName;
 		}
 		function getEmail(){
 			return $this -> email;
