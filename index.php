@@ -41,8 +41,9 @@ include("View/header.html");
 </body>
 
 <?php
+
 // Include the footer
-//include("view/footer.html");
+include("View/footer.php");
 
 ?>
 </html>

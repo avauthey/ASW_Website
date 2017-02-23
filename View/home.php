@@ -58,12 +58,19 @@
                 </div>
               </div>
             </div>
+            <div class="row">
+              <div class="col-md-12 ">
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h3 class="panel-title">News</h3>
+                  </div>
+                  <div class="panel-body">
+                    Here de news
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
     </div>
 </div>
-<?php
-    echo "Welcome to the home page </br>";
-    
-     echo $user1 -> getFirstName();
-?>
     

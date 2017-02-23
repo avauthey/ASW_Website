@@ -84,3 +84,17 @@ nav .container-fluid{
     overflow: hidden!important;
     }
 }
+.panel-info{
+    border-color: #525688; 
+}
+.panel-info > .panel-heading{
+    color: white;
+    background-color: #525688; 
+}
+
+footer{
+    background-color: #525688;
+}
+footer > .row{
+    color: white;
+}
