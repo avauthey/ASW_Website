@@ -1,4 +1,10 @@
-<div class="row">
+<?php
+/**
+ *  Created by Antoine 
+ *  Modified by Antoine the 23/02/17 
+ */
+ ?>
+ <div class="row">
     <div class="col-lg-12">
         <h1 class="text-center">
             Fitness
@@ -47,5 +53,7 @@
     $('#sportsHall').removeClass('active');
     $('#climbingCenter').removeClass('active');
     $('#beauty').removeClass('active');
+    $('#register').removeClass('active');
+    $('#login').removeClass('active');
     $('#fitness').addClass('active');
 </script>

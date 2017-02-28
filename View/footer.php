@@ -1,4 +1,8 @@
 <?php
+/**
+ *  Created by Antoine 
+ *  Modified by Antoine the 28/02/17 
+ */
     if (isset($_POST["submit"])) {
 		$name = $_POST['name'];
 		$email = $_POST['email'];

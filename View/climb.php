@@ -1,4 +1,10 @@
-<div class="row">
+<?
+/**
+ * Created by Chris
+ * Modified by Chris the 28/02/17
+ */
+ ?>
+ <div class="row">
     <div class="col-lg-12">
         <h1 class="text-center">
             Climbing Centre
@@ -34,5 +40,7 @@
     $('#sac').removeClass('active');
     $('#sportsHall').removeClass('active');
     $('#beauty').removeClass('active');
+    $('#register').removeClass('active');
+    $('#login').removeClass('active');
     $('#climbingCenter').addClass('active');
 </script>

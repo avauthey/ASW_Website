@@ -1,11 +1,16 @@
-<div class="row">
+<?php
+/**
+ *  Created by Antoine 
+ *  Modified by Antoine the 28/02/17 
+ */
+ ?><div class="row">
     <div class="col-md-12">
         <h1 class="text-center"> Contact form </h1>
 		<div class="col-md-12">
 		    <div class="col-md-8 col-md-offset-3">
     			<form class="form-horizontal" method="post"  enctype="multipart/form-data">
     			 	<div class="form-group">
-    			 	    <div class="col-sm-2">
+    			 	    <div class="col-sm-3">
     				        <label class="control-label">First Name </label><font color="red">*</font>
     				    </div>
     				    <div class="col-sm-7">
@@ -14,7 +19,7 @@
     				    </div>
     				</div>
     				<div class="form-group">   
-				        <div class="col-sm-2">
+				        <div class="col-sm-3">
     				       <label class="control-label">Last Name </label><font color="red">*</font>
 				        </div>
 				        <div class="col-sm-7">
@@ -23,25 +28,25 @@
         				</div>
     				</div>
     			    <div class="form-group">
-    			        <div class="col-sm-2">
+    			        <div class="col-sm-3">
     				        <label class="control-label">Mail </label><font color="red">*</font>
     				    </div>
     				    <div class="col-sm-7">
-    				        <input name="email" id="mail" type="email" class="form-control" placeholder="email@ex.com" value="<?php echo htmlspecialchars($_POST['email']); ?>">
+    				        <input name="email2" id="mail" type="email" class="form-control" placeholder="email@ex.com" value="<?php echo htmlspecialchars($_POST['email2']); ?>">
     				        <?php echo "<p class='text-danger'>$errEmail</p>";?>
     				    </div>
     				</div>
-    			    <div class="from-group">
-    			        <div class="col-sm-2">
+    			    <div class="form-group">
+    			        <div class="col-sm-3">
     				        <label class="control-label">Phone </label><font color="red">*</font>
     				    </div>
     				    <div class="col-sm-7">
-    				        <input type="text" name="phone" id="phone" class="form-control" placeholder="0606060606" value="<?php echo htmlspecialchars($_POST['phone']);?>">
+    				        <input type="text" name="phone" id="phone" class="form-control" placeholder="0606060606" value="<?php echo htmlspecialchars($_POST['phone']); ?>">
     				        <?php echo "<p class='text-danger'>$errPhone</p>";?>
     				    </div>
     				</div>
     				<div class="form-group">
-    				    <div class="col-sm-2">
+    				    <div class="col-sm-3">
                 		    <label class="control-label">Password</label><font color="red">*</font>
             		    </div>
                 		<div class="col-sm-7">  
@@ -49,16 +54,31 @@
             			    <?php echo "<p class='text-danger'>$errPassword</p>";?>
                 	    </div>
                 	</div>
-                	<div class="from-group">
-    				    <label class="control-label">Confirm Password</label><font color="red">*</font>
-    				    <input type="password" name="confirm" id="confirm" class="form-control" >
-    				    <?php echo "<p class='text-danger'>$errConfirm</p>";?>
+                	<div class="form-group">
+                		<div class="col-sm-3">
+    				    	<label class="control-label">Confirm Password</label><font color="red">*</font>
+    				    </div>
+    				    <div class="col-sm-7">
+    				    	<input type="password" name="confirm" id="confirm" class="form-control" >
+    				    	<?php echo "<p class='text-danger'>$errConfirm</p>";?>
+    				    </div>
     				</div>
     				</br>
-    		    	<button id="submit" name="submit" class="btn btn-success" type="submit">Register</button></br>
+    		    	<button id="submit" name="submit2" class="btn btn-success" type="submit">Register</button></br>
     		    	<?php echo $result; ?> 
     			</form></br>
     		</div>
 		</div>
     </div>
 </div>
+<script type="text/javascript">
+    // code jquery to active or remove css class in the menu bar
+    $('#home').removeClass('active');
+    $('#gym').removeClass('active');
+    $('#fitness').removeClass('active');
+    $('#sac').removeClass('active');
+    $('#sportsHall').removeClass('active');
+    $('#beauty').removeClass('active');
+    $('#climbingCenter').removeClass('active');
+    $('#register').addClass('active');
+</script>
