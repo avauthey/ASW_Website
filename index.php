@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <?php
 // https://asw-website-avauthey.c9users.io

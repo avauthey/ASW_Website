@@ -2,6 +2,9 @@
     display: block;
     margin-top: -5px;
 }
+nav .navbar{
+    border-color: #525688;
+}
 nav .container-fluid{
     color: #525688;
     background-color: white;
@@ -83,6 +86,7 @@ nav .container-fluid{
     .collapsing {
     overflow: hidden!important;
     }
+    
 }
 .panel-info{
     border-color: #525688; 
@@ -97,4 +101,8 @@ footer{
 }
 footer > .row{
     color: white;
+}
+.table>tbody>tr.info>td, .table>tbody>tr.info>th, .table>tbody>tr>td.info, .table>tbody>tr>th.info, .table>tfoot>tr.info>td, .table>tfoot>tr.info>th, .table>tfoot>tr>td.info, .table>tfoot>tr>th.info, .table>thead>tr.info>td, .table>thead>tr.info>th, .table>thead>tr>td.info, .table>thead>tr>th.info{
+    color: white;
+    background-color: #525688;
 }
