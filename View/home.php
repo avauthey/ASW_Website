@@ -5,7 +5,7 @@
             <div class="row">
               <div class="col-md-6 col-md-4">
                 <div class="thumbnail">
-                  <img src="Images/snc04.jpg" alt="Gym at ASW">
+                   <a href="index.php?page=gym"><img src="Images/snc04.jpg" alt="Gym at ASW"></a>
                   <div class="caption">
                     <a href="index.php?page=gym" class="linkBox text-center"><h3>Gym</h3></a>
                   </div>
@@ -14,7 +14,7 @@
               
               <div class="col-md-6 col-md-4">
                 <div class="thumbnail">
-                  <img src="Images/fitness.jpg" alt="Fitness at ASW">
+                  <a href="index.php?page=fitness"><img src="Images/fitness.jpg" alt="Fitness at ASW"></a>
                   <div class="caption">
                     <a href="index.php?page=fitness" class="linkBox text-center"><h3>Fitness</h3></a>
                   </div>
@@ -23,7 +23,7 @@
               
               <div class="col-md-6 col-md-4">
                 <div class="thumbnail">
-                  <img src="Images/snc01.jpg" alt="Strength and conditioning at ASW">
+                   <a href="index.php?page=strength"><img src="Images/snc01.jpg" alt="Strength and conditioning at ASW"></a>
                   <div class="caption">
                     <a href="index.php?page=strength" class="linkBox text-center"><h3>Strength</h3></a>
                   </div>
@@ -34,7 +34,7 @@
               
               <div class="col-md-6 col-md-4">
                 <div class="thumbnail">
-                  <img src="Images/hall.jpg" alt="Gym at ASW">
+                   <a href="index.php?page=sportsHall"><img src="Images/hall.jpg" alt="hall at ASW"></a>
                   <div class="caption">
                     <a href="index.php?page=sportsHall" class="linkBox text-center"><h3>Sports Hall</h3></a>
                   </div>
@@ -43,7 +43,7 @@
               
               <div class="col-md-6 col-md-4">
                 <div class="thumbnail">
-                  <img src="Images/climb.jpg" alt="Gym at ASW">
+                   <a href="index.php?page=climb"><img src="Images/climb.jpg" alt="Climb at ASW"></a>
                   <div class="caption">
                     <a href="index.php?page=climb" class="linkBox text-center"><h3>Climibing Centre</h3></a>
                   </div>
@@ -52,7 +52,7 @@
               
               <div class="col-md-6 col-md-4">
                 <div class="thumbnail">
-                  <img src="Images/beauty2.jpg" alt="Gym at ASW">
+                   <a href="#"><img src="Images/beauty2.jpg" alt="Beauty at ASW">
                   <div class="caption">
                     <a href="#" class="linkBox text-center"><h3>Hair & Beauty</h3></a>
                   </div>

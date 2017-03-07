@@ -3,7 +3,8 @@
  *  Created by Antoine 
  *  Modified by Antoine the 28/02/17 
  */
- ?><div class="row">
+ ?>
+ <div class="row">
     <div class="col-md-12">
         <h1 class="text-center"> Contact form </h1>
 		<div class="col-md-12">
@@ -71,6 +72,28 @@
 		</div>
     </div>
 </div>
+
+<!-- Modal to show if the registration is good -->
+<div class="modal fade" id="modalConfirm" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Successful Registration</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-5">
+              <img src="image/iconTick.png">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="indexUser.php" role="button" class="btn btn-success" id="btnConfirm">Ok</a>
+      </div>
+    </div>
+  </div>
+</div>
 <script type="text/javascript">
     // code jquery to active or remove css class in the menu bar
     $('#home').removeClass('active');
@@ -81,4 +104,9 @@
     $('#beauty').removeClass('active');
     $('#climbingCenter').removeClass('active');
     $('#register').addClass('active');
+    
+    var a = '<?php echo $verif;?>';
+    if(a == '1'){
+        $("#modalConfirm").modal('show');
+    }
 </script>

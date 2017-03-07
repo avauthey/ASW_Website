@@ -3,6 +3,8 @@
  *  Created by Antoine 
  *  Modified by Antoine the 28/02/17 
  */
+	$verif = 0;
+	
     if (isset($_POST["submit2"])) {
 				
 		// Check if first name has been entered
@@ -67,7 +69,7 @@
             $query -> bindValue(':hasPaid',0);
             $query -> execute();
             
-            header("Location: index.php");
+            $verif = 1;
         }
 	}
     include("View/register.php");

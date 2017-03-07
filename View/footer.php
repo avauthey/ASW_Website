@@ -13,7 +13,11 @@
 		$subject = 'Message from Contact Demo ';
 		
 		$body = "From: $name\n E-Mail: $email\n Message:\n $message";
- 
+		
+        //Check the department
+        if(!$_POST["department"] || $_POST["department"] =="--"){
+            $errDept = 'Please chose a valid department';
+        }
 		// Check if name has been entered
 		if (!$_POST['name']) {
 			$errName = 'Please enter your name';
@@ -34,7 +38,7 @@
 		}
  
         // If there are no errors, send the email
-        if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
+        if (!$errDept && !$errName && !$errEmail && !$errMessage && !$errHuman) {
         	if (mail ($to, $subject, $body, $from)) {
         		$result='<div class="alert alert-success">Thank You! I will be in touch</div>';
         		$_POST['name']='';
@@ -54,25 +58,34 @@
                 <h3> Contact form </h3>
         		<div class="col-md-12">
         		    <form method="post"  enctype="multipart/form-data">
+        		        <div class="form-group">     
+        				    <label class="control-label">Chose department </label><font color="red">*</font>
+        				    <select name="department" class="form-control">
+                              <option value="--" selected="selected">--</option>
+                              <option value="general">General</option>
+                              <option value="hab">Hair and Beauty</option>
+                            </select>
+        				    <?php echo "<p class='text-danger' style='font-weight: bold;'>$errDept</p>";?>
+        				</div>
         			 	<div class="form-group">     
         				    <label class="control-label">Name </label><font color="red">*</font>
         				    <input type="text" name="name" id="name" class="form-control" placeholder="name" value="<?php echo htmlspecialchars($_POST['name']); ?>">
-        				    <?php echo "<p class='text-danger'>$errName</p>";?>
+        				    <?php echo "<p class='text-danger' style='font-weight: bold;'>$errName</p>";?>
         				</div>
         			    <div class="form-group">
         				    <label class="control-label">Mail </label><font color="red">*</font>
         				    <input name="email" id="mail" type="email" class="form-control" placeholder="email@ex.com" value="<?php echo htmlspecialchars($_POST['email']); ?>">
-        				    <?php echo "<p class='text-danger'>$errEmail</p>";?>
+        				    <?php echo "<p class='text-danger' style='font-weight: bold;'>$errEmail</p>";?>
         				</div>
         			    <div class="from-group">
         				    <label class="control-label">Message</label><font color="red">*</font>
         				    <textarea name="message" id="message" class="form-control" placeholder="Type Here"><?php echo htmlspecialchars($_POST['message']);?></textarea>
-        				    <?php echo "<p class='text-danger'>$errMessage</p>";?>
+        				    <?php echo "<p class='text-danger' style='font-weight: bold;'>$errMessage</p>";?>
         				</div>
         				<div class="form-group">
                     		<label class="control-label">2 + 3 = ?</label><font color="red">*</font>
                 			<input type="text" class="form-control" id="human" name="human" placeholder="Your Answer">
-                			<?php echo "<p class='text-danger'>$errHuman</p>";?>
+                			<?php echo "<p class='text-danger' style='font-weight: bold;'>$errHuman</p>";?>
                     	</div>
         				</br>
     			    	<button id="submit" name="submit" class="btn btn-success" type="submit">Submit</button></br>
