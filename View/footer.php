@@ -19,8 +19,25 @@
             $errDept = 'Please chose a valid department';
         }
         /*else{
-            if($_POST["department"]=="general"){
+            if($_POST["department"]=="fitness" || $_POST["department"]=="gym" || $_POST["department"]=="strandcond" || $_POST["department"]=="sportsHall" || $_POST["department"]=="climbing" ){
                 $to = "aswinfo.perth@uhi.ac.uk";
+                switch ($_POST["department"]) {
+                    case "fitness":
+                        $subject = "F.A.O. Fitness";
+                        break;
+                    case "gym":
+                        $subject = "F.A.O Gym";
+                        break;
+                    case "strandcond":
+                        $subject = "F.A.O Strength and Conditioning";
+                        break;
+                    case "sportsHall":
+                        $subject = "F.A.O Sports Hall";
+                        break;
+                    case "climbing":
+                        $subject = "F.A.O Climbing Centre";
+                        break;
+                }
             }
             else{
                 $to = "salonappointments.perth@uhi.ac.uk";
@@ -68,10 +85,14 @@
         		<div class="col-md-12">
         		    <form method="post"  enctype="multipart/form-data">
         		        <div class="form-group">     
-        				    <label class="control-label">Chose department </label><font color="red">*</font>
+        				    <label class="control-label">Choose department </label><font color="red">*</font>
         				    <select name="department" class="form-control">
-                              <option value="--" selected="selected">--</option>
-                              <option value="general">General</option>
+                              <option value="--" selected="selected">Select department</option>
+                              <option value="gym">Gym</option>
+                              <option value="fitness">Fitness</option>
+                              <option value="strandcond">Strength and conditionning</option>
+                              <option value="sportsHall">Sports Hall</option>
+                              <option value="climbing">Climbing centre</option>
                               <option value="hab">Hair and Beauty</option>
                             </select>
         				    <?php echo "<p class='text-danger' style='font-weight: bold;'>$errDept</p>";?>

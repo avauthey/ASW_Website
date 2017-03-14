@@ -11,10 +11,10 @@
         </h1>
         <div class="col-md-10 col-md-offset-1">
             <div class="row">
-                <div class="col-xs-7">
-                    <img src="Images/fitness.jpg" style="width:400px;">
+                <div class="col-lg-7">
+                    <img src="Images/fitness.jpg" class="img-responsive">
                 </div>
-                <div class="col-xs-5">
+                <div class="col-lg-5">
                     </br></br>
                     We will offer a variety of fun and enjoyable classes 
                     in the new Fitness Studio whether you are looking for 
