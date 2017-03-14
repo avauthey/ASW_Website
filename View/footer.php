@@ -18,6 +18,15 @@
         if(!$_POST["department"] || $_POST["department"] =="--"){
             $errDept = 'Please chose a valid department';
         }
+        /*else{
+            if($_POST["department"]=="general"){
+                $to = "aswinfo.perth@uhi.ac.uk";
+            }
+            else{
+                $to = "salonappointments.perth@uhi.ac.uk";
+            }
+        }*/
+        
 		// Check if name has been entered
 		if (!$_POST['name']) {
 			$errName = 'Please enter your name';

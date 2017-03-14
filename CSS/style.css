@@ -37,32 +37,33 @@ nav .container-fluid{
   margin-right: 0px;
 }
 
-
+/* commented out all !important properties -which cause an errors on mobile version */
 
 @media (max-width: 1000px) { /* Remplacez 123px par la taille de votre choix */
     .navbar{
-        height:100px!important;
+        /*height:100px!important;*/
     }
+	
     .navbar-toggle {
         display: block;
-        width: 200px!important;
-        height:200px!important;
+       /* width: 200px!important;
+        height:200px!important;*/
         border:solid;
         border-color: black;
         
     }
     .navbar-header {
         float: none;
-        height:210px!important;
+        /*height:210px!important;*/
     }
     .navbar-brand > .imgBrand{
-        width: 200px!important;
+        /*width: 200px!important;*/
     }
     .navbar-collapse.collapse {
-        display: none!important;
+        /*display: none!important;*/
     }
     navbar-nav {
-        float: none!important;
+        /*float: none!important;*/
         margin: 7.5px -15px;
     }
     .navbar-nav>li {
@@ -72,7 +73,7 @@ nav .container-fluid{
     .navbar-nav>li>a {
         padding-top: 25px;
         padding-bottom: 10px;
-        font-size: 50px;
+        font-size: 30px;
     }
     .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
         color: white;
@@ -88,7 +89,7 @@ nav .container-fluid{
     display: block!important;
     }
     .collapsing {
-    overflow: hidden!important;
+    /*overflow: hidden!important;*/
     }
     
 }
@@ -113,7 +114,21 @@ footer > .row{
     background-color: #525688;
 }
 
+.table-responsive{
+	border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px #ddd;
+}
 
+th, td {
+    border: none;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+}
 
 
 .row2:after {

@@ -68,7 +68,7 @@
             $query -> bindValue(':phone',$phone);
             $query -> bindValue(':hasPaid',0);
             $query -> execute();
-            
+            $_SESSION['id']=$bdd -> lastInsertId();
             $verif = 1;
         }
 	}

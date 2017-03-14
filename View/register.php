@@ -6,7 +6,7 @@
  ?>
  <div class="row">
     <div class="col-md-12">
-        <h1 class="text-center"> Contact form </h1>
+        <h1 class="text-center"> Register </h1>
 		<div class="col-md-12">
 		    <div class="col-md-8 col-md-offset-3">
     			<form class="form-horizontal" method="post"  enctype="multipart/form-data">
@@ -84,7 +84,7 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-md-6 col-md-offset-5">
-              <img src="image/iconTick.png">
+              <img src="Images/iconTick.png">
           </div>
         </div>
       </div>

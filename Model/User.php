@@ -35,7 +35,7 @@
 		    $this -> phone = $data['phone'];
 		}
 		
-		//functions
+		//methods
 		function getId(){
 			return $this -> id;
 		}

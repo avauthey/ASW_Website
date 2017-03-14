@@ -1,11 +1,20 @@
 <div class="row">
     <div class="col-md-12">
-       <h1 class="text-center">Gym</h1>
+       <h1 class="text-center">Gym</h1></br>
        <div class="col-md-8 col-md-offset-2">
+			<div class="row">
+                <div class="col-xs-6">
+                    </br>
+                    Our gym equipment includes a variety of the latest cardiovascular and strength resistance equipment to help you with achieving your fitness goals and to inspire you to move your body, 
+                    de-stress and improve or maintain your fitness levels! In addition, our fitness staff will be on hand to offer advice, encouragement and motivation when needed!
+                </div>
+				<div class="col-xs-6">
+                    <img src="Images/fitness.jpg" style="width:400px;">
+                </div>
+            </div></br>
            <div class="row">
                <div class="col-md-12">
-                    Our gym equipment includes a variety of the latest cardiovascular and strength resistance equipment to help you with achieving your fitness goals and to inspire you to move your body, 
-                    de-stress and improve or maintain your fitness levels! In addition, our fitness staff will be on hand to offer advice, encouragement and motivation when needed!</br></br>
+                    </br></br>
                     We have a great selection of equipment for you to choose from to help keep your work out challenging, fresh and varied!
                 </div>
             </div>

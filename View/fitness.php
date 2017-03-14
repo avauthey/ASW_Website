@@ -11,7 +11,7 @@
         </h1>
         <div class="col-md-10 col-md-offset-1">
             <div class="row">
-                <div class="col-xs-6">
+                <div class="col-xs-7">
                     <img src="Images/fitness.jpg" style="width:400px;">
                 </div>
                 <div class="col-xs-5">
