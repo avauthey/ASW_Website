@@ -25,7 +25,7 @@
 				        </div>
 				        <div class="col-sm-7">
         				    <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Last Name" value="<?php echo htmlspecialchars($_POST['firstName']); ?>">
-        				    <?php echo "<p class='text-danger'>$errFirstName</p>";?>
+        				    <?php echo "<p class='text-danger'>$errLastName</p>";?>
         				</div>
     				</div>
     			    <div class="form-group">

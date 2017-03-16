@@ -8,18 +8,18 @@
 
 // Include the file to connect the project with the database
 include('connectDB.php');
-
-// Creation of a new session user
-$id=(isset($_SESSION['id']))?(int) $_SESSION['id']:0;
-if ($id!=0) erreur('error');
 session_start();
 
+if(isset($_SESSION['id'])){
+    if($_SESSION['typeUser']==1){
+        header('Location: indexUser.php');
+    }
+    else if($_SESSION['typeUser']==2){
+        header('Location: indexAdmin.php');
+    }
+}
 // Include the file header
 include("View/header.html");
-
-
-
-
 ?>
 
 

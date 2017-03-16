@@ -20,7 +20,7 @@
 				</div></br>
 				<div class="form-group">   
 			        <div class="col-sm-3">
-				       <label class="control-label">Last Name </label><font color="red">*</font>
+				       <label class="control-label">Password </label><font color="red">*</font>
 			        </div>
 			        <div class="col-sm-7">
     				    <input type="password" name="password2" id="password2" class="form-control" placeholder="Password" >

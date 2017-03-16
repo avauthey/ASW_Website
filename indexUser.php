@@ -7,7 +7,10 @@
 // then click the URL that is emitted to the Output tab of the console
 
 // Include the file to connect the project with the database
-
+/**
+ * Create Antoine the 10/03/17
+ * Modify by Antoine 15/03/17
+ */ 
 
 // Creation of a new session user
 session_start();

@@ -20,7 +20,8 @@
     			if ($data['password'] == md5($_POST['password2'])) // check password
     			{
     			    $_SESSION['id'] = $data['id'];
-    			   // var_dump($_SESSION['id']);
+    			    //1: user; 2: Admin
+    			    $_SESSION['typeUser'] = 1;
     			    header('Location: indexUser.php');
     			}
     			else 
@@ -33,6 +34,8 @@
     			    if ($data['password'] == md5($_POST['password2'])) // check password admin
     				{
     				    $_SESSION['id'] = $data['id'];
+    				    //0: no user; 1: user; 2: Admin
+    				    $_SESSION['typeUser'] = 2;
     				    header('Location: indexAdmin.php');
     	  				//exit();
     				}
