@@ -1,4 +1,8 @@
 <?php
+	/**
+	 * Create by Antoine
+	 * modify by Antoine the 19/03/17
+	 */
     //include the file with database
     if(file_exists('connectionDB.php'))
         include 'connectionDB.php';

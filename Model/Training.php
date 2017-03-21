@@ -15,6 +15,7 @@
         private $date;
         private $duration;
         private $type;
+        private $start;
         
         //constructor
         function __construct($idParam){
@@ -29,6 +30,7 @@
 		    $this -> date = $data['date'];
 		    $this -> duration = $data['duration'];
 		    $this -> type = $data['type'];
+		    $this -> start = $data['start'];
 		}
 		
 		//methods
@@ -38,7 +40,7 @@
 		function getName(){
 			return $this -> name;
 		}
-		function getNbpPlace(){
+		function getNbPlace(){
 			return $this -> nbPlace;
 		}
 		function getDate(){
@@ -49,6 +51,9 @@
 		}
 		function getType(){
 			return $this -> type;
+		}
+		function getStart(){
+			return $this -> start;
 		}
 }
 
