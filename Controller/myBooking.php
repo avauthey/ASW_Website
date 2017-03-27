@@ -5,7 +5,7 @@
  */
     
     global $bdd;
-    $query = $bdd -> prepare('SELECT * from Booking where idUser=:idUser');
+    $query = $bdd -> prepare('SELECT * from Booking where idUser=:idUser order by idTraining');
     $query -> bindValue(':idUser',$user -> getId());
     $query -> execute();
     $data = $query -> fetchAll();

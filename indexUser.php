@@ -47,10 +47,8 @@ if(isset($_SESSION["id"])){
         }
         else
         {
-            // if the user wants to go on a page that doesn't exist it will display the index page 
-           //include 'Controller/homeUser.php';
-           echo "create the home page user";
-          // echo '<input type="text" name="name" id="name" class="form-control" placeholder="name" value="'.$user->getFirstName().'">';
+            // if the user wants to go on a page that doesn't exist it will display the home page 
+           include 'Controller/homeUser.php';
         }
     ?>
     </body>

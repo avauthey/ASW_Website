@@ -251,6 +251,15 @@ img.hover-shadow {
   width:100%;
   
 }
+.linkHomeAdmin{
+    text-decoration: none;
+    color: black;
+}
+
+.linkHomeAdmin:hover{
+    text-decoration: none;
+    color: #525688;
+}
 
 
 

@@ -1,13 +1,39 @@
 <?php
-
-
-include('connectDB.php');
-if($_GET['id'])
+/**
+ * Created by Chris
+ * Modified by Chris the 14/03/17
+ */
+session_start();
+include('../connectDB.php');
+$result = 0;
+ini_set("display_errors", 1);
+//var_dump($_POST);
+if($_POST['params']['id'] && $_POST['params']['idUser'])
 {
-$id=$_GET['id'];
- $sql = "delete from booking_customer where transactionum='$id'";
- mysql_query("delete from customer where id='$id'");
- mysql_query( $sql);
+   if($_POST['params']['idUser'] == $_SESSION['id']){
+      
+      $id=$_POST['params']['id'];
+      $idUser=$_POST['params']['idUser'];
+      
+      // delete the booking
+      $query = $bdd -> prepare("Delete from Booking where idTraining=:id and idUser=:idUser");
+      $query -> bindValue(':id',$id);
+      $query -> bindValue(':idUser',$idUser);
+      $query -> execute();
+      
+      // Update table Training
+      $query = $bdd -> prepare("UPDATE Training SET nbPlace = nbPlace + 1 where id=:id");
+      $query -> bindValue(':id',$id);
+      $query -> execute();
+      $result = 1;
+   }
+   else{
+    $result = 0;
+   }
+}
+else{
+    $result = 0;
 }
 
+echo $result;
 ?>
