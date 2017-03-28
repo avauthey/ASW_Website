@@ -13,11 +13,11 @@
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <tr>
-                        <th class="info"> Class </th>
+                        <th class="info"> Name </th>
                         <th class="info">Date</th>
                         <th class="info"> Start time </th>
                         <th class="info"> Duration </th>
-                        <th class="info">Type</th>
+                        <th class="info">Type of training</th>
                         <th class="info">Option</th>
                     </tr>
                     <?php
