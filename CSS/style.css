@@ -251,16 +251,13 @@ img.hover-shadow {
   width:100%;
   
 }
-.linkHomeAdmin{
+.linkHomeUser{
     text-decoration: none;
     color: black;
 }
 
-.linkHomeAdmin:hover{
+.linkHomeUser:hover{
     text-decoration: none;
     color: #525688;
 }
 
-
-
-/* Climb Gallery*/

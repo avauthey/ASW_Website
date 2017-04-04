@@ -2,13 +2,13 @@
     <div class="col-md-12">
         <div class="col-md-8 col-md-offset-2">
             <div class="col-md-6 text-center">
-                <a href="indexUser.php?page=bookTraining" class="linkHomeAdmin">
+                <a href="indexUser.php?page=bookTraining" class="linkHomeUser">
                     <img src="Images/icon-book.png"></br>
                     Book a training session
                 </a>
             </div>
             <div class="col-md-6 text-center">
-                <a href="indexUser.php?page=myBooking" class="linkHomeAdmin">
+                <a href="indexUser.php?page=myBooking" class="linkHomeUser">
                     <img src="Images/icon-my-booking.png"></br>
                     See my booking
                 </a>

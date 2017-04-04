@@ -1,21 +1,10 @@
-<?php
-/**
- * Created by Chris
- * Modified by Chris the 16/03/17
- */
- ?>
 <div class="row">
     <div class="col-lg-12">
         <h1 class="text-center">
-            My Bookings
+            Training Sessions
         </h1>
-        
-         <div class="col-md-2">
-           <!--  <h4> Booking</h4>
-             <input type="radio" name="status" id="old" value="old" aria-label="..."> Old
-             <input type="radio" name="status" id="upcoming" value="upcoming" aria-label="..."  checked="checked"> Upcoming
-           -->
-           <form method="post" action="indexUser.php?page=myBooking">
+        <div class="col-md-2">
+            <form method="post" action="indexAdmin.php?page=seeTrainings">
                 <h4> Filter</h4>
                 <label for="">Name</label>
                 <select id="nameTraining" name="nameTraining"class="form-control">
@@ -49,43 +38,43 @@
                 <input type="date" class="form-control" name="dateTraining"data-date-inline-picker="true" <?php if(isset($_POST["dateTraining"])) {echo 'value="'.$_POST["dateTraining"].'"';}; ?> /></br>
                 <div class="col-md-12">
                 <button id="search" type="submit" name="search" class="btn btn-primary">Search</button>
-                <a class="btn btn-warning" href="indexUser.php?page=myBooking">Clear</a></div>
+                <a class="btn btn-warning" href="indexUser.php?page=bookTraining">Clear</a></div>
                 <?php echo "<p class='text-danger' style='font-weight: bold;'>$err</p>";?>
             </form>
         </div>
-        
-        
         <div class="col-md-10">
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <tr>
-                        <th class="info"> Name </th>
-                        <th class="info">Date</th>
-                        <th class="info"> Start time </th>
-                        <th class="info"> Duration </th>
-                        <th class="info">Type of training</th>
-                        <th class="info">Option</th>
+                        <th class="info">Name</th>
+                        <th class="info">Number of Remaining Places</th>
+                        <th class="info">Date of Session</th>
+						<th class="info">Start Time</th>
+                        <th class="info">Duration</th>
+                        <th class="info">Type of Training</th>
+						<th class="info">Option</th>
                     </tr>
                     <?php
-                  // var_dump($array);
-                   
-                    foreach($array as $idTraining){
-                        if($idTraining != null){
-                            $training = new Training($idTraining['id']);
-                            echo '  <tr>
-                            <th>'.$training -> getName().'</th>
-                            <th>'.$training -> getDate().'</th>
-                            <th>'.substr($training -> getStart(),0,-3).'</th>
-                            <th>'.$training -> getDuration().'</th>
-                            <th>'.$training -> getType().'</th>
-                            <th><a href="#" id="'.$training -> getId().'"  class="delbutton btn btn-danger" title="Click To Delete">Delete</a></th>
-                              
-                        </tr>';
-                        }
-                        
-                    }
                     
+					// var_dump($data2);
+                    foreach($data2 as $idTraining){
+                        $training = new Training($idTraining['id']);
+                        
+                        echo '  <tr>
+                        <th>'.$training -> getName().'</th>
+						<th>'.$training -> getNbPlace().'</th>
+						<th>'.$training -> getDate().'</th>
+						<th>'.substr($training -> getStart(),0,-3).'</th>
+                        <th>'.$training -> getDuration().'</th>
+                        <th>'.$training -> getType().'</th>
+                        <th> <a href="indexAdmin.php?page=editUser" class="btn btn-primary"> Edit </a>
+                            <a href="#" id="'.$training -> getId().'" class="delTraining btn btn-danger"> Delete </a>
+                            <a href="#" id="'.$training -> getId().'" class="bookings btn btn-warning"> See bookings </a>
+                            </th>
+                        </tr>';
+                    }
                     ?>
+
                 </table>
             </div>
         </div>
@@ -130,7 +119,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <a href="indexUser.php?page=myBooking" role="button" class="btn btn-success" id="btnConfirm">Ok</a>
+        <a href="indexAdmin.php?page=seeTrainings" role="button" class="btn btn-success" id="btnConfirm">Ok</a>
       </div>
     </div>
   </div>
@@ -138,7 +127,7 @@
 
 <script type="text/javascript">
 $(function() {
-    $(".delbutton").click(function(){
+    $(".delTraining").click(function(){
     
         //Save the link in a variable called element
         var element = $(this);
@@ -146,7 +135,7 @@ $(function() {
         //Find the id of the link that was clicked
         var del_id = element.attr("id");
         console.log(del_id);
-        var idUser = '<?php echo $user -> getId();?>';
+        var idUser = '<?php echo $admin -> getId();?>';
         console.log(idUser);
         //Built a url to send
         $('#modalAsk').modal('show');
@@ -154,7 +143,7 @@ $(function() {
         
              $.ajax({
                type: "POST",
-               url: "Functions/deleteBooking.php",
+               url: "Functions/deleteTraining.php",
                //data: info,
                data: {params:{'id': del_id,'idUser': idUser }},
                success: function(answer){
@@ -169,30 +158,42 @@ $(function() {
     });
 
 });
-/*$(function() {
-    var dateBooking;
-    console.log($('input[name=status]').val());
-     $('input[name=status]').change(function() {
-
-            if (this.value == 'old') {
-                dateBooking = 0;
-            }
-            else if (this.value == 'upcoming') {
-                dateBooking = 1;
-            }
-    });
+$(function() {
+    $(".bookings").click(function(){
     
-    console.log(dateBooking);
-      $.ajax({
-       url : 'indexUser.php?page=myBookings', 
-       type : 'POST', 
-       data : 'dateBooking=' + dateBooking
+        //Save the link in a variable called element
+        var element = $(this);
+        
+        //Find the id of the link that was clicked
+        var del_id = element.attr("id");
+        console.log(del_id);
+        var idUser = '<?php echo $admin -> getId();?>';
+        console.log(idUser);
+        //Built a url to send
+        $('#modalUserBooking').modal('show');
+        $(".bookbuttonConfirm").click(function(){
+        
+             $.ajax({
+               type: "POST",
+               url: "Functions/makeBooking.php",
+               //data: info,
+               data: {params:{'id': del_id,'idUser': idUser }},
+               success: function(answer){
+                console.log(answer);
+                if(answer == 1){
+                    $('#modalConfirm').modal('show');
+                }
+               }
+             });
+        })
+
     });
-});*/
+
+});
 
 $('#home').removeClass('active');
-$('#training').removeClass('active');
+$('#user').removeClass('active');
 $('#settings').removeClass('active');
 $('#logout').removeClass('active');
-$('#myBookings').addClass('active'); 
+$('#trainings').addClass('active'); 
 </script>

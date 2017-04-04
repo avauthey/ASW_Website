@@ -8,24 +8,21 @@
 
 // Include the file to connect the project with the database
 /**
- * Create Antoine the 10/03/17
+ * Create Antoine the 30/03/17
  * Modify by Antoine 15/03/17
  */ 
 
 // Creation of a new session user
 session_start();
 if(isset($_SESSION["id"]) && isset($_SESSION["typeUser"])){
-    if($_SESSION["typeUser"] == 1){
+    if($_SESSION["typeUser"] == 2){
         include('connectDB.php');
-        include('Model/User.php');
+        include('Model/Admin.php');
         // creation of new object user which is the user connected
-        $user = new User($_SESSION["id"]);
+        $admin = new Admin($_SESSION["id"]);
+       
         // Include the file header
         include("View/header.html");
-       // echo $user -> getFirstName();
-        /*if ($user -> getHasPaid() == 0){
-            echo " You don't have paid bastard!";
-        }*/
         
         ?>
         
@@ -35,7 +32,7 @@ if(isset($_SESSION["id"]) && isset($_SESSION["typeUser"])){
         <body>
             <?php
             // Include the menu bar
-            include("View/menuBarUser.html");
+            include("View/menuBarAdmin.html");
             // Condition to the MVC
             if (!empty($_GET['page']) && is_file('Controller/'.$_GET['page'].'.php'))
             {
@@ -49,7 +46,8 @@ if(isset($_SESSION["id"]) && isset($_SESSION["typeUser"])){
             else
             {
                 // if the user wants to go on a page that doesn't exist it will display the home page 
-               include 'Controller/homeUser.php';
+               include 'Controller/homeAdmin.php';
+             
             }
         ?>
         </body>
@@ -60,7 +58,7 @@ if(isset($_SESSION["id"]) && isset($_SESSION["typeUser"])){
         include("View/footer.php");
     }
     else{
-        echo "Your are not allow in this section";
+        echo "you are not allow in this section";
     }
 }
 else{

@@ -6,34 +6,43 @@
             Training Sessions
         </h1>
         <div class="col-md-2">
-            <h4> Filter</h4>
-            <label for="">Name</label>
-            <select id="nameTraining" class="form-control">
-                <option value="--">Select Training Session</option>
-                <?php
-                    $query = $bdd -> prepare('SELECT DISTINCT(name) FROM Training');
-                    $query -> execute();
-                    $arrayName = $query -> fetchAll();
-                    foreach ($arrayName as $name) {
-                        echo '<option value="'.$name["name"].'">'.$name["name"].'</option>';
-                    }
-                ?>
-            </select>
-            <label for="">Type</label>
-            <select id="typeTraining" class="form-control">
-                <option value="--">Select a type</option>
-                <?php
-                    $query = $bdd -> prepare('SELECT DISTINCT(type) FROM Training');
-                    $query -> execute();
-                    $arrayName = $query -> fetchAll();
-                    foreach ($arrayName as $name) {
-                        echo '<option value="'.$name["type"].'">'.$name["type"].'</option>';
-                    }
-                ?>
-            </select>
-            <label for="">Date</label>
-            <input type="date" class="form-control" data-date-inline-picker="true" /></br>
-            <button id="search" name="search" class="btn btn-primary">Search</button></br>
+            <form method="post" action="indexUser.php?page=bookTraining">
+                <h4> Filter</h4>
+                <label for="">Name</label>
+                <select id="nameTraining" name="nameTraining"class="form-control">
+                    <option value="--">Select Training Session</option>
+                    <?php
+                        $query = $bdd -> prepare('SELECT DISTINCT(name) FROM Training');
+                        $query -> execute();
+                        $arrayName = $query -> fetchAll();
+                        foreach ($arrayName as $name) {
+                            echo '<option value="'.$name["name"].'" ';
+                            if(isset($_POST["nameTraining"]) && $_POST["nameTraining"] == $name["name"]) {echo "selected";};
+                            echo '>'.$name["name"].'</option>';
+                        }
+                    ?>
+                </select>
+                <label for="">Type</label>
+                <select id="typeTraining" name="typeTraining" class="form-control">
+                    <option value="--">Select a type</option>
+                    <?php
+                        $query = $bdd -> prepare('SELECT DISTINCT(type) FROM Training');
+                        $query -> execute();
+                        $arrayName = $query -> fetchAll();
+                        foreach ($arrayName as $name) {
+                            echo '<option value="'.$name["type"].'" ';
+							if(isset($_POST["typeTraining"]) && $_POST["typeTraining"] == $name["type"]) {echo "selected";};
+                            echo '>'.$name["type"].'</option>';
+                        }
+                    ?>
+                </select>
+                <label for="">Date</label>
+                <input type="date" class="form-control" name="dateTraining"data-date-inline-picker="true" <?php if(isset($_POST["dateTraining"])) {echo 'value="'.$_POST["dateTraining"].'"';}; ?> /></br>
+                <div class="col-md-12">
+                <button id="search" type="submit" name="search" class="btn btn-primary">Search</button>
+                <a class="btn btn-warning" href="indexUser.php?page=bookTraining">Clear</a></div>
+                <?php echo "<p class='text-danger' style='font-weight: bold;'>$err</p>";?>
+            </form>
         </div>
         <div class="col-md-10">
             <div class="table-responsive">
