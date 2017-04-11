@@ -56,6 +56,8 @@
       $data2 = $query -> fetchAll();
     }
     
+   
+    include ('Model/User.php');
     include ('Model/Training.php');
     include ('View/seeTrainings.php');
 

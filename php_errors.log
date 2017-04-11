@@ -496,3 +496,34 @@
 [26-Mar-2017 13:59:35 UTC] PHP Stack trace:
 [26-Mar-2017 13:59:35 UTC] PHP   1. {main}() /home/ubuntu/workspace/Functions/deleteBooking.php:0
 [26-Mar-2017 13:59:35 UTC] PHP   2. PDOStatement->execute() /home/ubuntu/workspace/Functions/deleteBooking.php:27
+[05-Apr-2017 15:34:05 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/Controller/seeTrainings.php on line 53
+[05-Apr-2017 15:34:05 UTC] PHP Stack trace:
+[05-Apr-2017 15:34:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/Controller/seeTrainings.php:0
+[05-Apr-2017 15:35:02 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/Controller/seeTrainings.php on line 53
+[05-Apr-2017 15:35:02 UTC] PHP Stack trace:
+[05-Apr-2017 15:35:02 UTC] PHP   1. {main}() /home/ubuntu/workspace/Controller/seeTrainings.php:0
+[05-Apr-2017 15:35:43 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/Controller/seeTrainings.php on line 53
+[05-Apr-2017 15:35:43 UTC] PHP Stack trace:
+[05-Apr-2017 15:35:43 UTC] PHP   1. {main}() /home/ubuntu/workspace/Controller/seeTrainings.php:0
+[05-Apr-2017 15:36:05 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/Controller/seeTrainings.php on line 53
+[05-Apr-2017 15:36:05 UTC] PHP Stack trace:
+[05-Apr-2017 15:36:05 UTC] PHP   1. {main}() /home/ubuntu/workspace/Controller/seeTrainings.php:0
+[05-Apr-2017 15:36:52 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/Controller/seeTrainings.php on line 53
+[05-Apr-2017 15:36:52 UTC] PHP Stack trace:
+[05-Apr-2017 15:36:52 UTC] PHP   1. {main}() /home/ubuntu/workspace/Controller/seeTrainings.php:0
+[05-Apr-2017 15:43:19 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/Controller/seeTrainings.php on line 53
+[05-Apr-2017 15:43:19 UTC] PHP Stack trace:
+[05-Apr-2017 15:43:19 UTC] PHP   1. {main}() /home/ubuntu/workspace/Controller/seeTrainings.php:0
+[05-Apr-2017 15:44:32 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/View/seeTrainings.php on line 13
+[05-Apr-2017 15:44:32 UTC] PHP Stack trace:
+[05-Apr-2017 15:44:32 UTC] PHP   1. {main}() /home/ubuntu/workspace/View/seeTrainings.php:0
+[06-Apr-2017 11:43:24 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/ubuntu/workspace/Functions/getTrainingModal.php on line 8
+[06-Apr-2017 11:44:56 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ',' or ';' in /home/ubuntu/workspace/Functions/getTrainingModal.php on line 7
+[06-Apr-2017 11:45:02 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ',' or ';' in /home/ubuntu/workspace/Functions/getTrainingModal.php on line 7
+[06-Apr-2017 11:47:06 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/ubuntu/workspace/Functions/getTrainingModal.php on line 9
+[11-Apr-2017 12:17:53 UTC] PHP Fatal error:  Call to a member function prepare() on a non-object in /home/ubuntu/workspace/Functions/getTrainingModal.php on line 9
+[11-Apr-2017 12:17:53 UTC] PHP Stack trace:
+[11-Apr-2017 12:17:53 UTC] PHP   1. {main}() /home/ubuntu/workspace/Functions/getTrainingModal.php:0
+[11-Apr-2017 12:19:09 UTC] PHP Fatal error:  Class 'Training' not found in /home/ubuntu/workspace/Functions/getTrainingModal.php on line 15
+[11-Apr-2017 12:19:09 UTC] PHP Stack trace:
+[11-Apr-2017 12:19:09 UTC] PHP   1. {main}() /home/ubuntu/workspace/Functions/getTrainingModal.php:0

@@ -59,20 +59,27 @@
                     <?php
                     
 					// var_dump($data2);
+					$quer = $bdd -> prepare('SELECT idTraining from Booking where idUser = :user');
+					$quer -> bindValue(':user',$user -> getId());
+					$quer -> execute();
+					$data3 = $quer -> fetchAll();
                     foreach($data2 as $idTraining){
                         $training = new Training($idTraining['id']);
                         if($user -> getHasPaid() == 0){
                             $button = '<a href="#" id="'.$training -> getId().'" class="bookbutton btn btn-success" disabled title="click to book">Book</a>';
                         }
-                        else {
-                            if($training -> getNbPlace() == 0){
-                                $button = '<a href="#" id="'.$training -> getId().'" class="bookbutton btn btn-success" data-toggle="tooltip" data-placement="top" title="Fully booked, sorry." disabled title="click to book">Book</a>';
-                            }
-                            else{
-                                $button = '<a href="#" id="'.$training -> getId().'" class="bookbutton btn btn-success" title="click to book">Book</a>';
-                            }
-                            
+                        else if($training -> getNbPlace() == 0){
+                            $button = '<a href="#" id="'.$training -> getId().'" class="bookbutton btn btn-success" data-toggle="tooltip" data-placement="top" title="Fully booked, sorry." disabled title="click to book">Book</a>';
                         }
+                        else{
+                            $button = '<a href="#" id="'.$training -> getId().'" class="bookbutton btn btn-success" title="click to book">Book</a>';
+                        }
+                        foreach ($data3 as $booking) {
+                            if($training -> getId() == $booking['idTraining']){
+                                $button = '<a href="#" id="'.$training -> getId().'" class="bookbutton btn btn-success" data-toggle="tooltip" data-placement="top" title="You have already booked." disabled title="click to book">Book</a>';
+                            }
+                        }    
+                        
                         echo '  <tr>
                         <th>'.$training -> getName().'</th>
 						<th>'.$training -> getNbPlace().'</th>

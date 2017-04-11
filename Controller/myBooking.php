@@ -9,9 +9,9 @@
     $query -> bindValue(':idUser',$user -> getId());
     $query -> execute();
     $data = $query -> fetchAll();
-    unset($array);
-    $array=array();
-    
+    //unset($array);
+    $arrayUpcoming=array();
+    $arrayOld=array();
     //var_dump($_POST);
     if(isset($_POST['nameTraining'])&&isset($_POST['typeTraining'])){
       if($_POST['nameTraining'] != "--"){
@@ -29,39 +29,51 @@
       
       if($where1 && $where2 && $where3){// all
        $where=$where1.' AND '.$where2.' AND '.$where3;
+       $whereOld=$where1.' AND '.$where2.' AND '.$where3;
       }
       if($where1 && $where2 && !$where3){// name + type
        $where=$where1.' AND '.$where2.' AND date >="'.date('Y-m-d').'"';
+       $whereOld=$where1.' AND '.$where2.' AND date <"'.date('Y-m-d').'"';
       }
       if($where1 && !$where2 && $where3){// name + date
        $where=$where1.' AND '.$where3;
+       $whereOld=$where1.' AND '.$where3;
       }
       if($where1 && !$where2 && !$where3){//just the name
        $where=$where1.' AND date >="'.date('Y-m-d').'"';
+       $whereOld=$where1.' AND date <"'.date('Y-m-d').'"';
       }
       if(!$where1 && $where2 && $where3){ // date + type
        $where=$where2.' AND '.$where3;
+       $whereOld=$where2.' AND '.$where3;
       }
       if(!$where1 && $where2 && !$where3){ // just the type
        $where=$where2.' AND date >="'.date('Y-m-d').'"';
+       $where=$where2.' AND date <"'.date('Y-m-d').'"';
       }
       if(!$where1 && !$where2 && $where3){ // just the date
        $where=$where3;
+       $whereOld=$where3;
       }
      // var_dump($where);
       if(!$err){
-         /* for($i=0;$i<=count($array);$i++){
-              unset($array[$i]);
-          }
-        
-        var_dump($array);*/
+         
           foreach($data as $booking) {
             $idTraining=$booking['idTraining'];
             $query = $bdd -> prepare('SELECT * from Training where id=:idTraining AND '.$where);
             $query -> bindValue(':idTraining',$idTraining);
             $query -> execute();
             $data2 = $query -> fetch();
-            $array[]=$data2;
+            $arrayUpcoming[]=$data2;
+        }
+        
+        foreach($data as $booking) {
+            $idTraining=$booking['idTraining'];
+            $query = $bdd -> prepare('SELECT * from Training where id=:idTraining AND '.$whereOld);
+            $query -> bindValue(':idTraining',$idTraining);
+            $query -> execute();
+            $data2 = $query -> fetch();
+            $arrayOld[]=$data2;
         }
         //var_dump($array);
       }
@@ -73,7 +85,16 @@
             $query -> bindValue(':today',date('Y-m-d'));
             $query -> execute();
             $data2 = $query -> fetch();
-            $array[]=$data2;
+            $arrayUpcoming[]=$data2;
+        }
+        foreach($data as $booking) {
+            $idTraining=$booking['idTraining'];
+            $query = $bdd -> prepare('SELECT * from Training where id=:idTraining AND date< :today');
+            $query -> bindValue(':idTraining',$idTraining);
+            $query -> bindValue(':today',date('Y-m-d'));
+            $query -> execute();
+            $data2 = $query -> fetch();
+            $arrayOld[]=$data2;
         } 
       }
      
@@ -86,12 +107,24 @@
             $query -> bindValue(':today',date('Y-m-d'));
             $query -> execute();
             $data2 = $query -> fetch();
-            $array[]=$data2;
+            $arrayUpcoming[]=$data2;
         }
+        foreach($data as $booking) {
+            $idTraining=$booking['idTraining'];
+            $query = $bdd -> prepare('SELECT * from Training where id=:idTraining AND date< :today');
+            $query -> bindValue(':idTraining',$idTraining);
+            $query -> bindValue(':today',date('Y-m-d'));
+            $query -> execute();
+            $data2 = $query -> fetch();
+            $arrayOld[]=$data2;
+        } 
     }
-   // var_dump($array);
+
+
+    
+     
+    // var_dump($array);
     
     include('Model/Training.php');
     include("View/myBooking.php");
-    
 ?>

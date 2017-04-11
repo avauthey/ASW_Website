@@ -38,11 +38,12 @@
                 <input type="date" class="form-control" name="dateTraining"data-date-inline-picker="true" <?php if(isset($_POST["dateTraining"])) {echo 'value="'.$_POST["dateTraining"].'"';}; ?> /></br>
                 <div class="col-md-12">
                 <button id="search" type="submit" name="search" class="btn btn-primary">Search</button>
-                <a class="btn btn-warning" href="indexUser.php?page=bookTraining">Clear</a></div>
+                <a class="btn btn-warning" href="indexAdmin.php?page=seeTrainings">Clear</a></div>
                 <?php echo "<p class='text-danger' style='font-weight: bold;'>$err</p>";?>
             </form>
         </div>
         <div class="col-md-10">
+            <a href="indexAdmin.php?page=addTraining" class="btn btn-primary">Add Training</a></br>
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <tr>
@@ -67,7 +68,7 @@
 						<th>'.substr($training -> getStart(),0,-3).'</th>
                         <th>'.$training -> getDuration().'</th>
                         <th>'.$training -> getType().'</th>
-                        <th> <a href="indexAdmin.php?page=editUser" class="btn btn-primary"> Edit </a>
+                        <th> <a href="indexAdmin.php?page=editTraining&id='.$training->getId().'" class="btn btn-primary"> Edit </a>
                             <a href="#" id="'.$training -> getId().'" class="delTraining btn btn-danger"> Delete </a>
                             <a href="#" id="'.$training -> getId().'" class="bookings btn btn-warning"> See bookings </a>
                             </th>
@@ -80,7 +81,7 @@
         </div>
     </div>
 </div>
-<!-- Modal to show to ask to delete the booking -->
+<!-- Modal to show to ask to delete the trainings -->
 <div class="modal fade" id="modalAsk" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -125,6 +126,24 @@
   </div>
 </div>
 
+<!-- Modal to show to ask to show the bookings -->
+<div class="modal fade" id="modalShowBookings" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Bookings</h4>
+      </div>
+      <div class="modal-body bks">
+        
+      </div>
+      <div class="modal-footer">
+        <a href="printBooking.php" role="button" target="_blank" class="bookbuttonConfirm btn btn-success" id="btnPrint">Print</a>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
 <script type="text/javascript">
 $(function() {
     $(".delTraining").click(function(){
@@ -153,42 +172,35 @@ $(function() {
                 }
                }
              });
-        })
+        });
 
     });
 
 });
+
 $(function() {
-    $(".bookings").click(function(){
-    
+    $(".bookings").click(function(e){
+       // e.preventDefault();
         //Save the link in a variable called element
         var element = $(this);
         
         //Find the id of the link that was clicked
-        var del_id = element.attr("id");
-        console.log(del_id);
+        var train_id = element.attr("id");
+        console.log(train_id);
         var idUser = '<?php echo $admin -> getId();?>';
         console.log(idUser);
-        //Built a url to send
-        $('#modalUserBooking').modal('show');
-        $(".bookbuttonConfirm").click(function(){
-        
-             $.ajax({
-               type: "POST",
-               url: "Functions/makeBooking.php",
-               //data: info,
-               data: {params:{'id': del_id,'idUser': idUser }},
-               success: function(answer){
-                console.log(answer);
-                if(answer == 1){
-                    $('#modalConfirm').modal('show');
-                }
-               }
-             });
-        })
-
+        $.ajax({
+           type: "POST",
+           url: "Functions/getTrainingModal.php",
+           data: { train_id : train_id},
+           success: function(answer){
+                //console.log(answer);
+                $('.bks').html(answer);
+                $('#modalShowBookings').modal('show');
+                //$('#btnPrint').attr("href", "printBooking.php?training=<?php echo $_SESSION['idTraining']; ?>");
+           }
+        });
     });
-
 });
 
 $('#home').removeClass('active');

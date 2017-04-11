@@ -11,10 +11,10 @@
         </h1>
         
          <div class="col-md-2">
-           <!--  <h4> Booking</h4>
+             <h4> Booking</h4>
              <input type="radio" name="status" id="old" value="old" aria-label="..."> Old
              <input type="radio" name="status" id="upcoming" value="upcoming" aria-label="..."  checked="checked"> Upcoming
-           -->
+           
            <form method="post" action="indexUser.php?page=myBooking">
                 <h4> Filter</h4>
                 <label for="">Name</label>
@@ -48,14 +48,15 @@
                 <label for="">Date</label>
                 <input type="date" class="form-control" name="dateTraining"data-date-inline-picker="true" <?php if(isset($_POST["dateTraining"])) {echo 'value="'.$_POST["dateTraining"].'"';}; ?> /></br>
                 <div class="col-md-12">
-                <button id="search" type="submit" name="search" class="btn btn-primary">Search</button>
+                <button id="submitUp" type="submit" name="search" class="btn btn-primary">Search</button>
+                <button id="submitOld" type="submit" name="search" class="btn btn-primary hidden">Search</button>
                 <a class="btn btn-warning" href="indexUser.php?page=myBooking">Clear</a></div>
                 <?php echo "<p class='text-danger' style='font-weight: bold;'>$err</p>";?>
             </form>
         </div>
         
         
-        <div class="col-md-10">
+        <div class="col-md-10" id="upcomingDiv">
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <tr>
@@ -69,7 +70,41 @@
                     <?php
                   // var_dump($array);
                    
-                    foreach($array as $idTraining){
+                    foreach($arrayUpcoming as $idTraining){
+                        if($idTraining != null){
+                            $training = new Training($idTraining['id']);
+                            echo '  <tr>
+                            <th>'.$training -> getName().'</th>
+                            <th>'.$training -> getDate().'</th>
+                            <th>'.substr($training -> getStart(),0,-3).'</th>
+                            <th>'.$training -> getDuration().'</th>
+                            <th>'.$training -> getType().'</th>
+                            <th><a href="#" id="'.$training -> getId().'"  class="delbutton btn btn-danger" title="Click To Delete">Delete</a></th>
+                              
+                        </tr>';
+                        }
+                        
+                    }
+                    
+                    ?>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-10 hidden" id="oldDiv">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <th class="info"> Name </th>
+                        <th class="info">Date</th>
+                        <th class="info"> Start time </th>
+                        <th class="info"> Duration </th>
+                        <th class="info">Type of training</th>
+                        <th class="info">Option</th>
+                    </tr>
+                    <?php
+                  // var_dump($array);
+                   
+                    foreach($arrayOld as $idTraining){
                         if($idTraining != null){
                             $training = new Training($idTraining['id']);
                             echo '  <tr>
@@ -169,26 +204,20 @@ $(function() {
     });
 
 });
-/*$(function() {
-    var dateBooking;
-    console.log($('input[name=status]').val());
-     $('input[name=status]').change(function() {
 
-            if (this.value == 'old') {
-                dateBooking = 0;
-            }
-            else if (this.value == 'upcoming') {
-                dateBooking = 1;
-            }
-    });
-    
-    console.log(dateBooking);
-      $.ajax({
-       url : 'indexUser.php?page=myBookings', 
-       type : 'POST', 
-       data : 'dateBooking=' + dateBooking
-    });
-});*/
+$('#old').on("click",function(){
+    $('#upcomingDiv').addClass('hidden');
+    $('#oldDiv').removeClass('hidden');
+    $('#submitOld').removeClass('hidden');
+    $('#submitUp').addClass('hidden');
+}); 
+$('#upcoming').on("click",function(){
+    $('#upcomingDiv').removeClass('hidden');
+    $('#submitOld').addClass('hidden');
+    $('#oldDiv').addClass('hidden');
+    $('#submitUp').removeClass('hidden');
+});
+
 
 $('#home').removeClass('active');
 $('#training').removeClass('active');

@@ -26,14 +26,22 @@
                    and refreshed, the students will get the invaluable practical
                    experience essential for their further progression and training, so it’s a win win for all!
                 </div>
+                
             </div></br>
             <div class="row">
                 <div class="col-md-6">
+                     <div class="panel panel-info">
+                         <div class="panel-heading">
+                            <h3 class="panel-title text-center">Discounted treatments available Monday to Friday</h3>
+                        </div>
+                      </div>
+                      
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             <h3 class="panel-title text-center">There is a great selection of treatments on offer including:</h3>
                         </div>
                         <div class="panel-body">
+                             <div class="col-md-3">
                             <p style="color: #525688;font-weight: bold;">Hairdressing</p>
                             <ul>
                                 <li>Cutting</li>
@@ -41,6 +49,8 @@
                                 <li>Conditioning</li>
                                 <li>Colouring</li>
                             </ul>
+                            </div>
+                            <div class="col-md-9">
                             <p style="color: #525688;font-weight: bold;">Beauty Therapy</p>
                             <ul>
                                 <li>Massages (including traditional massages, Aromatherapy,
@@ -49,11 +59,18 @@
                                 <li>Waxing</li>
                                 <li>Manicures and pedicures</li>
                             </ul>
+                            </div>
+                           
                         </div>
                     </div>
                 </div>
             
                 <div class="col-md-6">
+                    <div class="panel panel-info">
+                         <div class="panel-heading">
+                            <a href="Docs/hair-and-beauty-price-list.pdf" class="panel-title text-center">Current treatment list and prices</a>
+                        </div>
+                      </div>
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             <h3 class="panel-title text-center">Booking</h3>
