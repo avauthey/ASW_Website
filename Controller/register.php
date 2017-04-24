@@ -69,6 +69,7 @@
             $query -> bindValue(':hasPaid',0);
             $query -> execute();
             $_SESSION['id']=$bdd -> lastInsertId();
+            $_SESSION['typeUser'] = 1;
             $verif = 1;
         }
 	}

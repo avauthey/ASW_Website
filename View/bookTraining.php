@@ -66,17 +66,22 @@
                     foreach($data2 as $idTraining){
                         $training = new Training($idTraining['id']);
                         if($user -> getHasPaid() == 0){
-                            $button = '<a href="#" id="'.$training -> getId().'" class="bookbutton btn btn-success" disabled title="click to book">Book</a>';
+                            $button = '<a href="#" id="'.$training -> getId().'" class="bookbutton btn btn-success" data-toggle="tooltip" data-placement="top" title="You can\'t book until you haven\'t paid." disabled="disabled" title="click to book">Book</a>';
+                            $x = 0;
                         }
                         else if($training -> getNbPlace() == 0){
-                            $button = '<a href="#" id="'.$training -> getId().'" class="bookbutton btn btn-success" data-toggle="tooltip" data-placement="top" title="Fully booked, sorry." disabled title="click to book">Book</a>';
+                            $button = '<a href="#" id="'.$training -> getId().'" class="bookbutton btn btn-success" data-toggle="tooltip" data-placement="top" title="Fully booked, sorry." disabled="disabled" title="click to book">Book</a>';
+                            $x=0;
                         }
                         else{
                             $button = '<a href="#" id="'.$training -> getId().'" class="bookbutton btn btn-success" title="click to book">Book</a>';
+                            $x=1;
+                            
                         }
                         foreach ($data3 as $booking) {
                             if($training -> getId() == $booking['idTraining']){
-                                $button = '<a href="#" id="'.$training -> getId().'" class="bookbutton btn btn-success" data-toggle="tooltip" data-placement="top" title="You have already booked." disabled title="click to book">Book</a>';
+                                $button = '<a href="#" id="'.$training -> getId().'" class="bookbutton btn btn-success" data-toggle="tooltip" data-placement="top" title="You have already booked." disabled="disabled" title="click to book">Book</a>';
+                                $x=0;
                             }
                         }    
                         
@@ -153,35 +158,38 @@
 </div>
 
 <script type="text/javascript">
+console.log($(".bookbutton").prop("disabled"));
 $(function() {
-    $(".bookbutton").click(function(){
     
-        //Save the link in a variable called element
-        var element = $(this);
-        
-        //Find the id of the link that was clicked
-        var del_id = element.attr("id");
-        console.log(del_id);
-        var idUser = '<?php echo $user -> getId();?>';
-        console.log(idUser);
-        //Built a url to send
-        $('#modalAsk').modal('show');
-        $(".bookbuttonConfirm").click(function(){
-        
-             $.ajax({
-               type: "POST",
-               url: "Functions/makeBooking.php",
-               //data: info,
-               data: {params:{'id': del_id,'idUser': idUser }},
-               success: function(answer){
-                console.log(answer);
-                if(answer == 1){
-                    $('#modalConfirm').modal('show');
-                }
-               }
-             });
-        })
-
+    $(".bookbutton").click(function(){
+        // console.log($(".bookbutton").attr("disabled"));
+        if($(".bookbutton").attr("disabled")!="disabled"){
+            //Save the link in a variable called element
+            var element = $(this);
+            
+            //Find the id of the link that was clicked
+            var del_id = element.attr("id");
+            console.log(del_id);
+            var idUser = '<?php echo $user -> getId();?>';
+            console.log(idUser);
+            //Built a url to send
+            $('#modalAsk').modal('show');
+            $(".bookbuttonConfirm").click(function(){
+            
+                 $.ajax({
+                   type: "POST",
+                   url: "Functions/makeBooking.php",
+                   //data: info,
+                   data: {params:{'id': del_id,'idUser': idUser }},
+                   success: function(answer){
+                    console.log(answer);
+                    if(answer == 1){
+                        $('#modalConfirm').modal('show');
+                    }
+                   }
+                 });
+            });
+        }
     });
 
 });

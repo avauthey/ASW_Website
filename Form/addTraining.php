@@ -12,7 +12,7 @@
 			 	<div class="form-group">
 			 	    <?php echo $message; ?>
 			 	    <div class="col-sm-3">
-				        <label class="control-label">Nom </label><font color="red">*</font>
+				        <label class="control-label">Name </label><font color="red">*</font>
 				    </div>
 				    <div class="col-sm-7">
 				        <select id="nameTraining" name="nameTraining"class="form-control">

@@ -12,13 +12,10 @@
 		$to = '16012337@uhi.ac.uk'; 
 		$subject = 'Message from Contact Demo ';
 		
-		$body = "From: $name\n E-Mail: $email\n Message:\n $message";
-		
         //Check the department
         if(!$_POST["department"] || $_POST["department"] =="--"){
             $errDept = 'Please chose a valid department';
-        }
-        /*else{
+        } else{
             if($_POST["department"]=="fitness" || $_POST["department"]=="gym" || $_POST["department"]=="strandcond" || $_POST["department"]=="sportsHall" || $_POST["department"]=="climbing" ){
                 $to = "aswinfo.perth@uhi.ac.uk";
                 switch ($_POST["department"]) {
@@ -42,8 +39,7 @@
             else{
                 $to = "salonappointments.perth@uhi.ac.uk";
             }
-        }*/
-        
+        }
 		// Check if name has been entered
 		if (!$_POST['name']) {
 			$errName = 'Please enter your name';
@@ -62,15 +58,11 @@
 		if ($human !== 5) {
 			$errHuman = 'Your anti-spam is incorrect';
 		}
- 
+        $body=$_POST['message'];
         // If there are no errors, send the email
         if (!$errDept && !$errName && !$errEmail && !$errMessage && !$errHuman) {
         	if (mail ($to, $subject, $body, $from)) {
         		$result='<div class="alert alert-success">Thank You! I will be in touch</div>';
-        		$_POST['name']='';
-        		$_POST['email']='';
-        		$_POST['message']='';
-        		$_POST['human']='';
         	} else {
         		$result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later</div>';
         	}
