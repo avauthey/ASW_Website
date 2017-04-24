@@ -10,7 +10,7 @@
       if($_POST['paidUser'] != "--"){
         $where3 ="hasPaid = '".$_POST['paidUser']."'";
       }
-      if($_POST['nameUser'] == "" && $_POST['emailUser'] == "" && $_POST['paidUser'] == ""){
+      if($_POST['nameUser'] == "" && $_POST['emailUser'] == "" && $_POST['paidUser'] == "--"){
        $err = "Please input at least one filter";
       }
       

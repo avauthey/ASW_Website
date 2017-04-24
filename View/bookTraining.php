@@ -158,12 +158,12 @@
 </div>
 
 <script type="text/javascript">
-console.log($(".bookbutton").prop("disabled"));
+//console.log($(".bookbutton").prop("disabled"));
 $(function() {
     
     $(".bookbutton").click(function(){
-        // console.log($(".bookbutton").attr("disabled"));
-        if($(".bookbutton").attr("disabled")!="disabled"){
+      //  console.log($(this).attr("disabled"));
+        if($(this).attr("disabled")!="disabled"){
             //Save the link in a variable called element
             var element = $(this);
             
